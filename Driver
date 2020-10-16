@@ -1,0 +1,89 @@
+/**
+ * Driver represents a driver of the car,
+ * with attributes name of driver and date of birth.
+ * 
+ * Driver class is component class.
+ * 
+ * Author Colin Riddle
+ * TMA02 Q2
+ * Date 6/2/20
+ */
+public class Driver
+{
+   // instance variables - replace the example below with your own
+   private String driverName;
+   private String DOB;
+   /**
+    * zero-argument constructor: if we dont know the drivers attributes.
+    */
+   public Driver()
+   {
+      this.driverName = null;
+      this.DOB = null;
+   }
+   
+   /**
+    * A constructor for objects of class Driver if we only 
+    * know thier name and not DOB.
+    */
+   public Driver(String aDriverName)
+   {
+      this.driverName = aDriverName;
+      this.DOB = null;
+   }
+   
+   /**
+    * Constructor for objects of class Driver
+    */
+   public Driver(String aDriverName, String aDOB)
+   {
+      // initialise instance variables
+      this.driverName = aDriverName;
+      this.DOB = aDOB;
+   }
+
+   /**
+    * setter for Drivers name.
+    */
+   public void setDriverName(String aDriverName)
+   {
+      this.driverName = aDriverName;
+   }
+   
+   /**
+    * getter for driver name.
+    */
+   public String getDriverName()
+   {
+      return this.driverName;
+   }
+   
+   /**
+    * setter for Drivers date of birth.
+    */
+   public void setDOB(String aDOB)
+   {
+      this.DOB = aDOB;
+   }
+   
+   /**
+    * getter for Drivers date of birth.
+    */
+   public String getDOB()
+   {
+      return this.DOB;
+   }
+   
+   /**
+    * Returns a description of this object as a string.
+    */
+    public String toString()
+    {
+     if (this.driverName == null) if (this.DOB == null)
+     {
+      return ("Driver Name and date of birth not known.");
+     }
+     
+      return this.driverName + "(Born on " + this.DOB + ")";
+   }
+}
