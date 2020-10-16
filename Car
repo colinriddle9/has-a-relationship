@@ -1,0 +1,168 @@
+
+/**
+ * Objects of the Car class model real-world cars that have attributes
+ * representing make, name, year made.
+ * 
+ * Car is an example of composite class.
+ * 
+ * An object of the Car has-a object of the Driver class
+ * which represents the driver who owns that car.
+ * 
+ * The value of emissions of 100 and over is computed to check if
+ * tax is required on the Car. 
+ * 
+ * Author Colin Riddle 
+ * TMA02 Q2
+ * Date 6/2/20
+ */
+public class Car
+{
+   // instance variables 
+   private Driver owner;
+   private String make;
+   private String carName;
+   private String yearMade;
+   private int emissions;
+   
+   /**
+    * Constructor for objects of class Car.
+    */
+   public Car(Driver aDriver, String aMake, String aName, String aYear, int aEmissions)
+   {
+      // initialise instance variable
+      this.owner = aDriver;
+      this.make = aMake;
+      this.carName = aName;
+      this.yearMade = aYear;
+      this.emissions = aEmissions;
+   }
+   
+   /**
+    * constructor for objects of class Car 
+    * where only the make of Car is known.
+    */
+   public Car()
+   {
+      this.make = null;
+      this.owner = new Driver();
+      this.carName = null;
+      this.yearMade = null;
+      this.emissions = 0;
+   }
+
+   /**
+    * Setter for Car drivers name.
+    */
+   public void setDriverName(String aDriver)
+   {
+     if(this.owner == null)
+     {
+        this.owner = new Driver(aDriver);
+     }
+     else
+     {
+        this.owner.setDriverName(aDriver);
+     }
+   }
+   
+   /**
+    * Getter for Car driver name
+    * This method returns unattributed if drivers name
+    * isnt set or returns name if known.
+    */
+   public String getDriverName()
+   {
+      if (this.owner == null || this.owner.getDriverName() == null)
+      {
+         return " Unattributed";
+      }
+      
+      return this.owner.getDriverName();
+   }
+   
+   /**
+    * Setter for Car make.
+    */
+   public void setMake(String aMake)
+   {
+      this.make = aMake;
+   }
+   
+   /**
+    * Getter for Car make.
+    */
+   public String getMake()
+   {
+      return this.make;
+   }
+   
+   /**
+    * Setter for Car name.
+    */
+   public void setCarName(String aName)
+   {
+      this.carName = aName;
+   }
+   
+   /**
+    * Getter for Car name.
+    */
+   public String getCarName()
+   {
+      return this.carName;
+   }
+   
+   /**
+    * Setter for Car year made.
+    */
+   public void setYearMade(String aYear)
+   {
+      this.yearMade = aYear;
+   }
+   
+   /**
+    * Getter for Car year was made.
+    */
+   public String getYearMade()
+   {
+      if (this.yearMade == null)
+      {
+         return "Unknown";
+      }
+      
+      return this.yearMade;
+   }
+   
+   /**
+    * Setter for Car emissions.
+    */
+   public void setEmissions(int aEmissions)
+   {
+      this.emissions = aEmissions;
+   }
+   
+   /**
+    * Getter for Car emissiions.
+    */
+   public int getEmissions()
+   {
+      return this.emissions;
+   }
+   
+   /**
+    * Getter for Cars tax requirement.
+    * 
+    */
+   public boolean isTaxRequired()
+   {
+       return this.getEmissions() >= 100;
+   }
+    
+   /**
+    * Returns String descibing this object.
+    */
+   public String toString()
+   {
+      return "Make: " + this.make + ", Emissions: " + this.emissions + ", Driver: " + this.getDriverName() + "."; 
+   }
+}
